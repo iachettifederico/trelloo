@@ -2,7 +2,6 @@
 
 require "faker"
 
-
 puts "Reseting Models".yellow
 [Board, List, Task].each do |model_class|
   puts "Destroying #{model_class.to_s.yellow}s".yellowish
@@ -19,10 +18,11 @@ print "Creating lists ".cyanish
 
   puts
   print "Creating tasks ".cyanish
-  rand(5..10).times do |_task_position|
+  rand(5..10).times do |task_position|
     print ".".cyan
     list.tasks.create!(
       name:        "#{Faker::Verb.base.capitalize} #{Faker::Hobby.activity}",
+      position:    task_position,
       description: Faker::Lorem.sentence(word_count: 10),
     )
   end

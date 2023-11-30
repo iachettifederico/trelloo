@@ -8,10 +8,7 @@ class Boards::ShowView < ApplicationView
   def template
     h1(class: "mb-3 font-semibold text-lg") { board.name }
 
-    div(
-      class: "flex gap-2",
-      data:  { controller: "sortable" },
-    ) {
+    div(class: "flex gap-2") {
       board.lists.each do |list|
         render ListComponent.for(list)
       end

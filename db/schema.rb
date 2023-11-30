@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_143215) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.integer "list_id", null: false
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["list_id"], name: "index_tasks_on_list_id"

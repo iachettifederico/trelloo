@@ -7,22 +7,21 @@ export default class extends Controller {
     Sortable.create(this.element, {
       animation: 150,
       ghostClass: "sortable-drop",
+      group: "tasks",
       onEnd: this.onEnd.bind(this),
     })
   }
 
   onEnd(event) {
-    // post("/sort", {
-    //   body: {
-    //     sort: {
-    //       id:        event.item.dataset.sortableId,
-    //       kind:      event.item.dataset.sortableKind,
-    //       position:  event.newIndex + 1,
-    //       to_parent_id: event.item.dataset.sortableToParentId,
-    //     }
-    //   }
-    // })
-    console.log("hola")
+    post("/sorting", {
+      body: {
+        sorting: {
+          id:        event.item.dataset.sortableId,
+          position:  event.newIndex,
+          to_parent_id: event.to.dataset.sortableToParentId,
+        }
+      }
+    })
   }
 
 }
