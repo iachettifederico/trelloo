@@ -16,8 +16,7 @@ class ApplicationLayout < ApplicationView
 
         stylesheet_link_tag("application", data_turbo_track: "reload")
         stylesheet_link_tag("tailwind", "inter-font", data_turbo_track: "reload")
-        helpers.turbo_include_tags
-        
+
         javascript_importmap_tags
 
         meta(name: "turbo-refresh-method", content: "morph")
