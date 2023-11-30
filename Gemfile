@@ -22,22 +22,17 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 
 group :development, :test do
   gem "debug", "~> 1.8.0", platforms: %i[mri windows]
+  gem "rspec-rails", "~> 6.1.0"
 end
 
 group :development do
+  gem "faker", "~> 3.2.2", require: false
   gem "guard-livereload", "~> 2.5.2", require: false
+  gem "rubocop", "~> 1.57.2"
   gem "web-console", "~> 4.2.1"
 end
 
 group :test do
   gem "capybara", "~> 3.39.2"
   gem "selenium-webdriver", "~> 4.15.0"
-end
-
-group :development do
-  gem "rubocop", "~> 1.57.2"
-end
-
-group :development, :test do
-  gem "rspec-rails", "~> 6.1.0"
 end
