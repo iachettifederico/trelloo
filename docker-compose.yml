@@ -21,40 +21,34 @@ services:
   web:
     <<: [*build-common, *app-common]
     depends_on:
-      - database
       - tailwind
     command: bundle exec rails s -b 0.0.0.0
     ports:
       - "3000:3000"
+    environment:
+      ENVIRONMENT: development
+      HISTFILE: /app/.zsh_history
+  
+  guard:
+    <<: [*build-common, *app-common]
+    depends_on:
+      - web
+    command: bundle exec guard
+    ports:
+      - "35729:35729"
 
   tailwind:
     <<: [*build-common, *app-common]
     command: bundle exec bin/rails tailwindcss:watch
-
-  database:
-    image: postgres:latest
-    environment:
-      POSTGRES_PASSWORD: postgres
-    ports:
-      - '5432:5432'
-    volumes:
-      - pg-data:/var/lib/postgresql/data
-  mailer:
-    image: mailhog/mailhog
-    environment:
-      MH_STORAGE: maildir
-      MH_MAILDIR_PATH: /home/mailhog
-    ports:
-      - '8025:8025'
-    volumes:
-      - mailhog:/home/mailhog
+ 
   redis:
     image: redis:latest
     volumes:
       - redis-data:/data
+    ports:
+      - '6379:6379'
 
 volumes:
   bundler:
   mailhog:
-  pg-data:
   redis-data:
