@@ -1,28 +1,66 @@
 ---
+
+require:
+- rubocop-rails
+- rubocop-rake
+
 AllCops:
   NewCops: enable
   ExtraDetails: false
   Exclude:
-    - ".git/**/*"
-    - "bin/**/*"
-    - "tmp/**/*"
-    - "sandbox/**/*"
-    - "sandbox/**/*"
-    - "db/**/*.rb"
+  - ".git/**/*"
+  - bin/**/*
+  - tmp/**/*
+  - sandbox/**/*
+  - sandbox/**/*
+  - db/**/*.rb
 
 Layout/HashAlignment:
   EnforcedColonStyle: table
   EnforcedHashRocketStyle: table
 
+Layout/LineLength:
+  Exclude:
+  - app/views/**/*
+
 Lint/MissingSuper:
   Enabled: false
 
+Metrics/AbcSize:
+  Exclude:
+  - app/views/**/*.rb
+  - db/migrate/**/*.rb
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+  - app/views/**/*.rb
+
+Rails/Output:
+  Exclude:
+  - app/views/**/*.rb
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Style/AccessorGrouping:
+  EnforcedStyle: separated
+
 Style/BlockDelimiters:
   EnforcedStyle: semantic
-  BracesRequiredMethods: ['let', 'let!']
+  Exclude:
+  - app/views/**/*
+  BracesRequiredMethods:
+  - let
+  - let!
 
 Style/Documentation:
   Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 
 Style/FrozenStringLiteralComment:
   Enabled: true
@@ -33,6 +71,10 @@ Style/HashSyntax:
 
 Style/KeywordParametersOrder:
   Enabled: false
+
+Style/RedundantInitialize:
+  Exclude:
+  - app/views/**/*.rb
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
@@ -45,3 +87,6 @@ Style/TrailingCommaInArrayLiteral:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+Style/TrivialAccessors:
+  Enabled: false
