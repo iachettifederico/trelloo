@@ -49,6 +49,8 @@ services:
   tailwind:
     <<: [*build-common, *app-common]
     command: bundle exec bin/rails tailwindcss:watch
+    environment:
+      REDIS_URL: redis://redis:6379/0
  
   redis:
     image: redis:latest

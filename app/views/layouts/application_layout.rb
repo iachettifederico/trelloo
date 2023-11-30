@@ -29,6 +29,8 @@ class ApplicationLayout < ApplicationView
         }
 
         main(class: "mt-8", &)
+
+        render Modal.new
       end
     end
   end
