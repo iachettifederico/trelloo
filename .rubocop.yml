@@ -1,0 +1,47 @@
+---
+AllCops:
+  NewCops: enable
+  ExtraDetails: false
+  Exclude:
+    - ".git/**/*"
+    - "bin/**/*"
+    - "tmp/**/*"
+    - "sandbox/**/*"
+    - "sandbox/**/*"
+    - "db/**/*.rb"
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  BracesRequiredMethods: ['let', 'let!']
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  SafeAutoCorrect: true
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+Style/KeywordParametersOrder:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
