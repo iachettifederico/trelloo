@@ -9,7 +9,12 @@ class ListComponent < ApplicationComponent
     div(class: "py-2 bg-gray-50 border border-2") {
       h2(class: "px-2 font-semibold border-b") { list.name }
 
-      div(class: "flex flex-col gap-2 py-2 px-1 w-48") {
+      div(
+        class: "flex flex-col gap-2 py-2 px-1 w-48",
+        data: {
+          controller: "sortable",
+        }
+      ) {
         list.tasks.each do |task|
           render TaskCardComponent.for(task)
         end
