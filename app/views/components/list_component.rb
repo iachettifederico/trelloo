@@ -6,6 +6,8 @@ class ListComponent < ApplicationComponent
   end
 
   def template
+    helpers.turbo_stream_from(list)
+
     div(class: "py-2 bg-gray-50 border border-2") {
       h2(class: "flex justify-between px-2 font-semibold border-b") {
         span { list.name }

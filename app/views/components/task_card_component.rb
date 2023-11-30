@@ -7,16 +7,21 @@ class TaskCardComponent < ApplicationComponent
 
   def template
     div(
-      class: "px-2 py-1 bg-gray-100 border border-2 cursor-move rounded-lg",
       data: {
         sortable_id: task.id,
       }
-    ) do
-      div(class: "flex justify-between") do
-        span { task.name }
-        span(class: "text-xs text-gray-500") { task.position }
-      end
-    end
+    ) {
+      plain helpers.turbo_stream_from(task)
+
+      div(
+        class: "px-2 py-1 bg-gray-100 border border-2 cursor-move rounded-lg",
+      ) {
+        div(class: "flex justify-between") do
+          span { task.name }
+          span(class: "text-xs text-gray-500") { task.position }
+        end
+      }
+    }
   end
 
   private

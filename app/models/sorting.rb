@@ -48,8 +48,10 @@ class Sorting
       { id: current_item.last, position: index }
     }
 
-    result.each do |current_item|
-      Task.find(current_item[:id]).update(position: current_item[:position])
+    ApplicationRecord.transaction do
+      result.each do |current_item|
+        Task.find(current_item[:id]).update(position: current_item[:position])
+      end
     end
   end
 
@@ -59,5 +61,6 @@ class Sorting
     end
     item.update(list: to_parent, position: position)
     parent.update_task_positions!
+    to_parent.update_task_positions!
   end
 end

@@ -28,7 +28,16 @@ services:
     environment:
       ENVIRONMENT: development
       HISTFILE: /app/.zsh_history
-  
+      REDIS_URL: redis://redis:6379/0
+
+  worker:
+    <<: [*build-common, *app-common]
+    depends_on:
+      - redis
+    command: bundle exec sidekiq
+    environment:
+      REDIS_URL: redis://redis:6379/0
+
   guard:
     <<: [*build-common, *app-common]
     depends_on:
