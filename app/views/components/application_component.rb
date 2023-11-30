@@ -24,7 +24,7 @@ class ApplicationComponent < Phlex::HTML
     render ApplicationForm.for(model, **, &)
   end
 
-  def link_to(*, &)
-    plain(helpers.link_to(*, &))
+  def link_to(*)
+    plain(helpers.link_to(*))
   end
 end
