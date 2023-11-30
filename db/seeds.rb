@@ -1,9 +1,20 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# frozen_string_literal: true
+
+puts "Models".yellow
+
+[Board, List, Task].each do |model_class|
+  model_class.destroy_all
+end
+
+board = Board.create!(name: "Main Board")
+
+%w[Backlog Doing Done].each.with_index do |list_name|
+  list = board.lists.create!(name: list_name)
+
+      rand(5..10).times do |task_position|
+      list.tasks.create!(
+        name:        "#{Faker::Verb.base.capitalize} #{Faker::Hobby.activity}",
+        description: Faker::Lorem.sentence(word_count: 10),
+      )
+end
+
