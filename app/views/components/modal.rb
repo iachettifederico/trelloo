@@ -10,7 +10,9 @@ class Modal < ApplicationComponent
       }
     ) {
       div(class: modal_style) {
-        "Loading ..."
+        turbo_frame_tag("modal") do
+          "Loading ..."
+        end
       }
     }
   end

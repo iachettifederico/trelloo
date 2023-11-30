@@ -1,17 +1,13 @@
-class TasksController < ApplicationController
-  def update
-    task.update(name: new_name)
+# frozen_string_literal: true
 
-    redirect_to board_path(task.board)
+class TasksController < ApplicationController
+  def show
+    render Tasks::ShowView.for(task)
   end
 
   private
 
   def task
     Task.find(params[:id])
-  end
-
-  def new_name
-    params[:new_name]
   end
 end

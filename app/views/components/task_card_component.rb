@@ -7,20 +7,20 @@ class TaskCardComponent < ApplicationComponent
 
   def template
     div(
-      data: {
+      class: "px-2 py-1 bg-gray-100 border border-2 cursor-move rounded-lg",
+      data:  {
         sortable_id: task.id,
       }
     ) {
       plain helpers.turbo_stream_from(task)
 
-      div(
-        class: "px-2 py-1 bg-gray-100 border border-2 cursor-move rounded-lg",
-      ) {
-        div(class: "flex justify-between") do
-          span { task.name }
-          span(class: "text-xs text-gray-500") { task.position }
-        end
-      }
+      link_to(
+        task.name, task_path(task),
+        data: {
+          action:      "click->modal#open",
+          turbo_frame: "modal",
+        }
+      )
     }
   end
 
