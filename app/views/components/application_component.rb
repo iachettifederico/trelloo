@@ -27,4 +27,9 @@ class ApplicationComponent < Phlex::HTML
   def link_to(*)
     plain(helpers.link_to(*))
   end
+
+  def single_field_wrapper(model:, field:, &)
+        turbo_frame_tag([dom_id(model), field], &) 
+
+  end
 end

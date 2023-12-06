@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :boards, only: %i[index show]
+  resources :boards, only: %i[index show edit update]
   resources :tasks, only: %i[show]
   resource :sorting, only: %i[create]
 

@@ -6,7 +6,9 @@ class Boards::ShowView < ApplicationView
   end
 
   def template
-    h1(class: "mb-3 font-semibold text-lg") { board.name }
+    single_field_wrapper(model: board, field: :name) do
+      link_to(board.name, edit_board_path(board, field: :name), class: "mb-3 font-semibold text-lg")
+    end
 
     div(class: "flex gap-2") {
       board.lists.each do |list|

@@ -84,7 +84,7 @@ class ApplicationForm < ApplicationComponent
       name:        field_name(field),
       type:        type,
       value:       value,
-      class:       "p-1 #{border_for(field)} #{css_class}",
+      class:       "p-1 #{border_for(field)} #{css_class} rounded-md",
       placeholder: placeholder,
       **,
     )
