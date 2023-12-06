@@ -6,9 +6,9 @@ class Tasks::ShowView < ApplicationView
   end
 
   def template
-    h1(class: "mb-3 font-semibold text-lg") { task.name }
-
-    10.times { p { "task.template" } }
+    turbo_frame_tag(:modal) do
+      h1(class: "mb-3 font-semibold text-lg") { task.name }
+    end
   end
 
   private

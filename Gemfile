@@ -26,7 +26,7 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 group :development do
   gem "annotate", "~> 3.2.0", require: false
   gem "guard-livereload", "~> 2.5.2", require: false
-  gem "rubocop", "~> 1.57.2"
+  gem "rubocop", "~> 1.58.0"
   gem "web-console", "~> 4.2.1"
 end
 
