@@ -10,7 +10,7 @@ class Boards::ShowView < ApplicationView
       link_to(board.name, edit_board_path(board, field: :name), class: "mb-3 font-semibold text-lg")
     end
 
-    div(class: "flex gap-2") {
+    div(class: "mt-4 flex gap-2") {
       board.lists.each do |list|
         render ListComponent.for(list)
       end

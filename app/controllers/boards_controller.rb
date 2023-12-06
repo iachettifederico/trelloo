@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    render SingleTextField.new(model: board, field: field)
+    render SingleFieldFor.new(model: board, field: field)
   end
 
   def update

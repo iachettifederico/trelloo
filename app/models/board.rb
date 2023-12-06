@@ -4,6 +4,8 @@ class Board < ApplicationRecord
   has_many :lists, dependent: :destroy
 
   validates :name, presence: true
+
+  normalizes :name, with: ->(name) { name.strip }
 end
 
 # == Schema Information

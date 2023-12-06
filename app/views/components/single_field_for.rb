@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-class SingleTextField < ApplicationForm
-  def initialize(model:, field:, placeholder: nil, **html_options)
+class SingleFieldFor < ApplicationForm
+  def initialize(model:, field:, type: :text, placeholder: nil, **html_options)
     @model = model
     @field = field
+    @type = type
     @placeholder = placeholder
     @html_options = html_options
   end
 
   def template
-    ap model: model, field: field
     turbo_frame_tag([dom_id(model), field]) do
       render ApplicationForm.for(model) do |form|
-        form.text_field(field, placeholder: placeholder, autofocus: true, **html_options)
+        form.send("#{type}_field", field, placeholder: placeholder, autofocus: true, **html_options)
       end
     end
   end
@@ -21,6 +21,7 @@ class SingleTextField < ApplicationForm
 
   attr_reader :model
   attr_reader :field
+  attr_reader :type
   attr_reader :placeholder
   attr_reader :html_options
 end
