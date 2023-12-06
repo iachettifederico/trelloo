@@ -14,7 +14,7 @@ board = Board.create!(name: "Main Board")
 print "Creating lists ".cyanish
 %w[Backlog Doing Done].each do |list_name|
   print ".".cyan
-  list = board.lists.create!(name: list_name)
+  list = board.lists.create!(name: list_name, color: Colors.new.sample)
 
   puts
   print "Creating tasks ".cyanish

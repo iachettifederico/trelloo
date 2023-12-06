@@ -7,7 +7,7 @@ class TaskCardComponent < ApplicationComponent
 
   def template
     div(
-      class: "px-2 py-1 bg-gray-100 border border-2 cursor-move rounded-lg",
+      class: "#{task.task_bg_color} px-2 py-1 border border-2 cursor-move rounded-lg",
       data:  {
         sortable_id: task.id,
       }

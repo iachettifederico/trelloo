@@ -10,6 +10,14 @@ class List < ApplicationRecord
     tasks
   end
 
+  def list_bg_color
+    "bg-#{color}-50"
+  end
+
+  def task_bg_color
+    "bg-#{color}-100"
+  end
+
   def tasks_before_position(position)
     tasks.where("position >= 0 AND position < ?", position)
   end
@@ -32,6 +40,7 @@ end
 #  id         :integer          not null, primary key
 #  name       :string
 #  board_id   :integer          not null
+#  color      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -11,6 +11,10 @@ class Task < ApplicationRecord
   def parent
     list
   end
+
+  def task_bg_color
+    list.task_bg_color
+  end
 end
 
 # == Schema Information
