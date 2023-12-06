@@ -9,10 +9,7 @@ class ListComponent < ApplicationComponent
     helpers.turbo_stream_from(list)
 
     div(class: "py-2 bg-gray-50 border border-2") {
-      h2(class: "flex justify-between px-2 font-semibold border-b") {
-        span { list.name }
-        span(class: "text-xs text-gray-500") { list.id }
-      }
+      h2(class: "flex justify-between px-2 font-semibold border-b") { list.name }
 
       div(
         class: "flex flex-col gap-2 py-2 px-1 w-48",
