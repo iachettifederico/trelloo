@@ -2,7 +2,11 @@
 
 if Rails.env.development?
   require "annotate"
+
+  desc "Set annotation options for AnnotateModels"
   task :set_annotation_options do
+    # You can override any of these by setting an environment variable of the
+    # same name.
     Annotate.set_defaults(
       "models"                    => "true",
       "controllers"               => "false",
