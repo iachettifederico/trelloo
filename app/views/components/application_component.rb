@@ -8,14 +8,6 @@ class ApplicationComponent < Phlex::HTML
   delegate :dom_id, to: :helpers
   delegate :form_with, to: :helpers
 
-  if Rails.env.development?
-    def before_template
-      comment { "Before #{self.class.name}" }
-      super
-      comment { "After #{self.class.name}" }
-    end
-  end
-
   def turbo_frame_tag(id, &)
     plain(turbo_frame(id: id, &))
   end

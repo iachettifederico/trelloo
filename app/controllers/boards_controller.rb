@@ -17,14 +17,14 @@ class BoardsController < ApplicationController
     if board.update(board_params)
       render Boards::ShowView.new(board: board)
     else
-      ap "no"
+      render SingleFieldFor.new(model: board, field: field)
     end
   end
 
   private
 
   def board
-    Board.find(params[:id])
+    @board ||= Board.find(params[:id])
   end
 
   def board_params

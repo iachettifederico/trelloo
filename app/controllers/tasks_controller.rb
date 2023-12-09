@@ -10,7 +10,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    ap params.to_unsafe_hash
     if task.update(task_params)
       render Tasks::ShowView.for(task)
     else
@@ -25,7 +24,7 @@ class TasksController < ApplicationController
   end
 
   def task
-    Task.find(params[:id])
+    @task ||= Task.find(params[:id])
   end
 
   def field

@@ -12,7 +12,9 @@ class SingleFieldFor < ApplicationForm
   def template
     turbo_frame_tag([dom_id(model), field]) do
       render ApplicationForm.for(model) do |form|
+        form.hidden_field_tag(:field, value: field)
         form.send("#{type}_field", field, placeholder: placeholder, autofocus: true, **html_options)
+        errors_for(field)
       end
     end
   end

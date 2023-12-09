@@ -12,11 +12,32 @@ class ApplicationForm < ApplicationComponent
   end
 
   def text_field(field, placeholder: "", **html_options)
-    ap field: field
     field_for(
       field:       field,
       type:        "text",
       value:       model.send(field),
+      placeholder: placeholder,
+      css_class:   html_options.delete(:class),
+      **html_options,
+    )
+  end
+
+  def text_field_tag(field, value: "", placeholder: "", **html_options)
+    input(
+      name:        field,
+      type:        "text",
+      value:       value,
+      placeholder: placeholder,
+      css_class:   html_options.delete(:class),
+      **html_options,
+    )
+  end
+
+  def hidden_field_tag(field, value: "", placeholder: "", **html_options)
+    input(
+      name:        field,
+      type:        "hidden",
+      value:       value,
       placeholder: placeholder,
       css_class:   html_options.delete(:class),
       **html_options,
