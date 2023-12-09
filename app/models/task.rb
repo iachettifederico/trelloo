@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  broadcasts_refreshes
+
   belongs_to :list, touch: true
   has_one :board, through: :list, dependent: :destroy
 
@@ -8,11 +10,7 @@ class Task < ApplicationRecord
 
   validates :name, presence: true
 
-  broadcasts_refreshes
-
-  def parent
-    list
-  end
+  def parent = list
 
   delegate :task_bg_color, to: :list
 end
