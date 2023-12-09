@@ -11,7 +11,7 @@ class Modal < ApplicationComponent
     ) {
       div(class: modal_style) {
         turbo_frame_tag("modal") do
-          "Loading ..."
+          span(class: modal_style) { "Loading ..." }
         end
       }
     }
@@ -23,7 +23,6 @@ class Modal < ApplicationComponent
     %w[
       hidden
 
-      text-gray-500
       fixed
       top-0
       left-0
@@ -56,6 +55,12 @@ class Modal < ApplicationComponent
       shadow-xl
       backdrop:bg-slate-400
       backdrop:bg-opacity-50
+    ]
+  end
+
+  def content_style
+    %w[
+      text-gray-500
     ]
   end
 
