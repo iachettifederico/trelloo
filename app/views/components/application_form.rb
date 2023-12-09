@@ -12,6 +12,7 @@ class ApplicationForm < ApplicationComponent
   end
 
   def text_field(field, placeholder: "", **html_options)
+    ap field: field
     field_for(
       field:       field,
       type:        "text",

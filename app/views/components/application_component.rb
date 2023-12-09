@@ -29,7 +29,6 @@ class ApplicationComponent < Phlex::HTML
   end
 
   def single_field_wrapper(model:, field:, &)
-        turbo_frame_tag([dom_id(model), field], &) 
-
+    turbo_frame_tag([dom_id(model), field], &)
   end
 end

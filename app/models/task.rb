@@ -6,15 +6,15 @@ class Task < ApplicationRecord
 
   has_rich_text :description
 
+  validates :name, presence: true
+
   broadcasts_refreshes
 
   def parent
     list
   end
 
-  def task_bg_color
-    list.task_bg_color
-  end
+  delegate :task_bg_color, to: :list
 end
 
 # == Schema Information

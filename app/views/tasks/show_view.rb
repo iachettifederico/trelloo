@@ -7,7 +7,9 @@ class Tasks::ShowView < ApplicationView
 
   def template
     turbo_frame_tag(:modal) do
-      h1(class: "mb-3 font-semibold text-lg") { task.name }
+      single_field_wrapper(model: task, field: :name) do
+        link_to(task.name, edit_task_path(task, field: :name), class: "mb-3 font-semibold text-lg")
+      end
     end
   end
 
