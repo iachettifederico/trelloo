@@ -6,9 +6,12 @@ puts "Creating Boards"
 board = Board.create!(name: "Main Board")
 
 print "Creating lists ".cyanish
-%w[Backlog Doing Done].each do |list_name|
+%w[Ideas Backlog Doing Done Re-Do].each do |list_name|
   print ".".cyan
-  list = board.lists.create!(name: list_name, color: Colors.new.sample)
+  list = board.lists.create!(
+    name:         list_name,
+    color_scheme: ColorScheme.sample
+  )
 
   puts
   print "Creating tasks for #{list_name.cyan} ".cyanish

@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_143215) do
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.integer "board_id", null: false
-    t.string "color"
+    t.string "color_scheme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["board_id"], name: "index_lists_on_board_id"
