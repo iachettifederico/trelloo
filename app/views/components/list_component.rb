@@ -8,7 +8,7 @@ class ListComponent < ApplicationComponent
   def template
     helpers.turbo_stream_from(list)
 
-    div(class: "#{color_scheme.list_bg_color} py-2 border border-2") {
+    div(class: "#{color_scheme.list_bg_color} py-2 border border-2 rounded-lg") {
       h2(class: "flex justify-between px-2 font-semibold border-b") { list.name }
 
       div(

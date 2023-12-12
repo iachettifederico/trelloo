@@ -6,7 +6,7 @@ puts "Creating Boards"
 board = Board.create!(name: "Main Board")
 
 print "Creating lists ".cyanish
-%w[Ideas Backlog Doing Done Re-Do].each do |list_name|
+%w[Ideas Backlog Doing Done ReDo].each do |list_name|
   print ".".cyan
   list = board.lists.create!(
     name:         list_name,
